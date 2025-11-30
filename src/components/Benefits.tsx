@@ -82,7 +82,7 @@ export function Benefits() {
             <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl opacity-10 blur-2xl"></div>
             <img
               src="/dashboard2.png"
-              alt="MCP-DANDAN 위협 탐지"
+              alt="MCP-Dandan 위협 탐지"
               className="relative rounded-2xl shadow-xl w-full border border-gray-200"
             />
           </div>
