@@ -1,0 +1,5 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="450" fill="#FCC624"/>
+  <text x="400" y="225" font-family="Arial, sans-serif" font-size="48" fill="#333" text-anchor="middle" dominant-baseline="middle">Linux</text>
+  <text x="400" y="280" font-family="Arial, sans-serif" font-size="24" fill="#333" text-anchor="middle" opacity="0.8">스크린샷을 여기에 넣어주세요</text>
+</svg>

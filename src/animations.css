@@ -1,0 +1,51 @@
+/* Animation utilities */
+.duration-300 { transition-duration: 300ms !important; }
+.duration-500 { transition-duration: 500ms !important; }
+.duration-700 { transition-duration: 700ms !important; }
+.duration-800 { transition-duration: 800ms !important; }
+.duration-1000 { transition-duration: 1000ms !important; }
+
+.delay-100 { transition-delay: 100ms !important; }
+.delay-200 { transition-delay: 200ms !important; }
+.delay-300 { transition-delay: 300ms !important; }
+.delay-400 { transition-delay: 400ms !important; }
+.delay-500 { transition-delay: 500ms !important; }
+.delay-600 { transition-delay: 600ms !important; }
+.delay-700 { transition-delay: 700ms !important; }
+.delay-800 { transition-delay: 800ms !important; }
+.delay-900 { transition-delay: 900ms !important; }
+.delay-1000 { transition-delay: 1000ms !important; }
+.delay-\[1100ms\] { transition-delay: 1100ms !important; }
+.delay-\[800ms\] { transition-delay: 800ms !important; }
+
+/* Transform utilities */
+.translate-x-0 { transform: translateX(0) !important; }
+.translate-y-0 { transform: translateY(0) !important; }
+.-translate-x-4 { transform: translateX(-1rem) !important; }
+.-translate-x-6 { transform: translateX(-1.5rem) !important; }
+.-translate-x-10 { transform: translateX(-2.5rem) !important; }
+.translate-x-2 { transform: translateX(0.5rem) !important; }
+.translate-x-4 { transform: translateX(1rem) !important; }
+.translate-x-6 { transform: translateX(1.5rem) !important; }
+.translate-x-10 { transform: translateX(2.5rem) !important; }
+.-translate-y-2 { transform: translateY(-0.5rem) !important; }
+.-translate-y-4 { transform: translateY(-1rem) !important; }
+.translate-y-4 { transform: translateY(1rem) !important; }
+.translate-y-6 { transform: translateY(1.5rem) !important; }
+.translate-y-10 { transform: translateY(2.5rem) !important; }
+.-translate-y-1 { transform: translateY(-0.25rem) !important; }
+
+/* Opacity utilities */
+.opacity-0 { opacity: 0 !important; }
+.opacity-60 { opacity: 0.6 !important; }
+.opacity-100 { opacity: 1 !important; }
+
+/* Scale utilities */
+.scale-105 { transform: scale(1.05) !important; }
+.scale-110 { transform: scale(1.1) !important; }
+
+.hover\:scale-105:hover { transform: scale(1.05) !important; }
+.hover\:scale-110:hover { transform: scale(1.1) !important; }
+.hover\:-translate-y-1:hover { transform: translateY(-0.25rem) !important; }
+.hover\:translate-x-1:hover { transform: translateX(0.25rem) !important; }
+.hover\:translate-x-2:hover { transform: translateX(0.5rem) !important; }
