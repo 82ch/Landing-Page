@@ -1,9 +1,13 @@
-import { Menu, Github } from 'lucide-react';
+import { Menu, Github, Languages } from 'lucide-react';
 import { Button } from './ui/button';
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
+import { useTranslation } from '../hooks/useTranslation';
 
 export function Header() {
   const [isVisible, setIsVisible] = useState(false);
+  const { language, setLanguage, isTransitioning } = useLanguage();
+  const t = useTranslation();
 
   useEffect(() => {
     setIsVisible(true);
@@ -25,23 +29,57 @@ export function Header() {
           <nav className={`hidden md:flex items-center gap-8 transition-all duration-700 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
           }`}>
-            <a href="#features" className="text-gray-600 hover:text-gray-900 transition-all hover:scale-105">
-              탐지 엔진
+            <a href="#features" className={`text-gray-600 hover:text-gray-900 transition-all hover:scale-105 ${
+              isTransitioning ? 'opacity-50 blur-[1px]' : 'opacity-100 blur-0'
+            }`}>
+              {t.header.features}
             </a>
-            <a href="#benefits" className="text-gray-600 hover:text-gray-900 transition-all hover:scale-105">
-              핵심 기능
+            <a href="#benefits" className={`text-gray-600 hover:text-gray-900 transition-all hover:scale-105 ${
+              isTransitioning ? 'opacity-50 blur-[1px]' : 'opacity-100 blur-0'
+            }`}>
+              {t.header.benefits}
             </a>
-            <a href="#how-it-works" className="text-gray-600 hover:text-gray-900 transition-all hover:scale-105">
-              작동 원리
+            <a href="#how-it-works" className={`text-gray-600 hover:text-gray-900 transition-all hover:scale-105 ${
+              isTransitioning ? 'opacity-50 blur-[1px]' : 'opacity-100 blur-0'
+            }`}>
+              {t.header.howItWorks}
             </a>
-            <a href="https://github.com/82ch/MCP-Dandan#readme" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-all hover:scale-105">
-              문서
+            <a href="https://github.com/82ch/MCP-Dandan#readme" target="_blank" rel="noopener noreferrer" className={`text-gray-600 hover:text-gray-900 transition-all hover:scale-105 ${
+              isTransitioning ? 'opacity-50 blur-[1px]' : 'opacity-100 blur-0'
+            }`}>
+              {t.header.docs}
             </a>
           </nav>
 
-          <div className={`flex items-center gap-4 transition-all duration-700 delay-400 ${
+          <div className={`flex items-center gap-3 transition-all duration-700 delay-400 ${
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
           }`}>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setLanguage(language === 'ko' ? 'en' : 'ko')}
+              className={`gap-2 relative overflow-hidden transition-all duration-300 ${
+                isTransitioning
+                  ? 'scale-95 bg-blue-100'
+                  : 'hover:scale-105 hover:bg-blue-50'
+              }`}
+            >
+              <Languages
+                className={`w-4 h-4 transition-all duration-300 ${
+                  isTransitioning ? 'rotate-180 scale-110' : 'rotate-0'
+                }`}
+              />
+              <span className={`transition-all duration-300 font-medium ${
+                isTransitioning
+                  ? 'scale-90 opacity-50'
+                  : 'scale-100 opacity-100'
+              }`}>
+                {language === 'ko' ? 'EN' : 'KO'}
+              </span>
+              {isTransitioning && (
+                <span className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 animate-pulse" />
+              )}
+            </Button>
             <Button className="gap-2 hover:scale-105 transition-transform" asChild>
               <a href="https://github.com/82ch" target="_blank" rel="noopener noreferrer">
                 <Github className="w-4 h-4" />

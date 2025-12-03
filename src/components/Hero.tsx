@@ -2,10 +2,12 @@ import { Shield, Github, BookOpen, Star, Scale } from 'lucide-react';
 import { Button } from './ui/button';
 import { useState, useEffect } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useTranslation } from '../hooks/useTranslation';
 
 export function Hero() {
   const [stars, setStars] = useState<number | null>(null);
   const { ref, isVisible } = useScrollAnimation();
+  const t = useTranslation();
 
   useEffect(() => {
     fetch('https://api.github.com/repos/82ch/82ch')
@@ -32,32 +34,28 @@ export function Hero() {
           }`}>
             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full">
               <Shield className="w-4 h-4" />
-              <span className="text-sm">오픈소스 MCP 보안 솔루션</span>
+              <span className="text-sm">{t.hero.badge}</span>
             </div>
 
-            <h1 className="text-gray-900">
-              MCP 통신을<br />
-              실시간으로 모니터링하고<br />
-              보안 위협을 탐지하세요
+            <h1 className="text-gray-900" style={{ whiteSpace: 'pre-line' }}>
+              {t.hero.title}
             </h1>
 
-            <p className="text-gray-600 text-lg">
-              MCP-Dandan은 Model Context Protocol 통신을 모니터링하고
-              다층 보안 탐지 시스템으로 실시간 위협을 탐지하는 통합 모니터링 서비스입니다.
-              Electron 기반 데스크톱 UI로 간편하게 관리하세요.
+            <p className="text-gray-600 text-lg" style={{ whiteSpace: 'pre-line' }}>
+              {t.hero.description}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button size="lg" className="gap-2 hover:scale-105 transition-transform" asChild>
                 <a href="https://github.com/82ch/MCP-Dandan" target="_blank" rel="noopener noreferrer">
                   <Github className="w-5 h-5" />
-                  GitHub에서 보기
+                  {t.hero.github}
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="gap-2 hover:scale-105 transition-transform" asChild>
                 <a href="https://github.com/82ch/MCP-Dandan#quick-start" target="_blank" rel="noopener noreferrer">
                   <BookOpen className="w-5 h-5" />
-                  설치 가이드
+                  {t.hero.guide}
                 </a>
               </Button>
             </div>
@@ -72,7 +70,7 @@ export function Hero() {
                       <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                       {stars}
                     </div>
-                    <div className="text-gray-600 text-sm">GitHub Stars</div>
+                    <div className="text-gray-600 text-sm">{t.hero.stars}</div>
                   </div>
                   <div className={`w-px h-12 bg-gray-200 transition-all duration-500 delay-600 ${
                     isVisible ? 'opacity-100' : 'opacity-0'
@@ -86,7 +84,7 @@ export function Hero() {
                   <Scale className="w-5 h-5 text-blue-600" />
                   MIT
                 </div>
-                <div className="text-gray-600 text-sm">라이센스</div>
+                <div className="text-gray-600 text-sm">{t.hero.license}</div>
               </div>
               <div className={`w-px h-12 bg-gray-200 transition-all duration-500 delay-${stars !== null ? '800' : '600'} ${
                 isVisible ? 'opacity-100' : 'opacity-0'
@@ -94,8 +92,8 @@ export function Hero() {
               <div className={`transition-all duration-700 delay-${stars !== null ? '900' : '700'} ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}>
-                <div className="text-gray-900">5개</div>
-                <div className="text-gray-600 text-sm">탐지 엔진</div>
+                <div className="text-gray-900">5</div>
+                <div className="text-gray-600 text-sm">{t.hero.engines}</div>
               </div>
               <div className={`w-px h-12 bg-gray-200 transition-all duration-500 delay-1000 ${
                 isVisible ? 'opacity-100' : 'opacity-0'
@@ -103,8 +101,7 @@ export function Hero() {
               <div className={`transition-all duration-700 delay-${stars !== null ? '[1100ms]' : '[800ms]'} ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}>
-                <div className="text-gray-900">실시간</div>
-                <div className="text-gray-600 text-sm">모니터링</div>
+                <div className="text-gray-900" style={{ whiteSpace: 'pre-line' }}>{t.hero.monitoring}</div>
               </div>
             </div>
           </div>
@@ -115,7 +112,7 @@ export function Hero() {
             <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl opacity-20 blur-3xl"></div>
             <img
               src="/dashboard.png"
-              alt="MCP-DANDAN 대시보드"
+              alt={t.hero.dashboardAlt}
               className="relative rounded-2xl shadow-2xl w-full border border-gray-200"
             />
           </div>

@@ -1,14 +1,16 @@
 import { Monitor } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useTranslation } from '../hooks/useTranslation';
 
 export function Details() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { ref, isVisible } = useScrollAnimation();
+  const t = useTranslation();
   const platforms = [
-    { name: 'Windows', image: '/platform-windows.png' },
-    { name: 'macOS', image: '/platform-macos.png' },
-    { name: 'Linux', image: '/platform-linux.png' }
+    { name: t.details.windows, image: '/platform-windows.png' },
+    { name: t.details.mac, image: '/platform-macos.png' },
+    { name: t.details.linux, image: '/platform-linux.png' }
   ];
 
   useEffect(() => {
@@ -49,7 +51,7 @@ export function Details() {
                   <div className="h-full bg-white rounded-xl border border-gray-200 shadow-xl p-4 flex items-center justify-center">
                     <img
                       src={platform.image}
-                      alt={`${platform.name} 지원`}
+                      alt={`${platform.name} ${t.details.support}`}
                       className="max-w-full max-h-full object-contain"
                     />
                   </div>
@@ -68,22 +70,20 @@ export function Details() {
           <div>
             <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-4">
               <Monitor className="w-4 h-4" />
-              <span className="text-sm font-medium">Cross-Platform</span>
+              <span className="text-sm font-medium">{t.details.badge}</span>
             </div>
-            <h2 className="text-gray-900 mb-6">
-              모든 플랫폼에서<br />
-              동일한 경험을
+            <h2 className="text-gray-900 mb-6" style={{ whiteSpace: 'pre-line' }}>
+              {t.details.title}
             </h2>
-            <p className="text-gray-600 text-lg mb-8">
-              Windows, macOS, Linux 모두에서 완벽하게 작동합니다.
-              Electron 기반으로 구축되어 어떤 운영체제에서도 동일한 사용자 경험을 제공합니다.
+            <p className="text-gray-600 text-lg mb-8" style={{ whiteSpace: 'pre-line' }}>
+              {t.details.description}
             </p>
 
             <div className="space-y-4">
               {[
-                { title: '100% 크로스 플랫폼 호환', desc: '모든 운영체제에서 동일한 기능과 성능을 보장합니다.' },
-                { title: '일관된 사용자 경험', desc: 'Electron 기반으로 어떤 플랫폼에서도 동일한 UI/UX를 제공합니다.' },
-                { title: '간편한 설치 및 업데이트', desc: '각 플랫폼에 최적화된 설치 패키지를 제공합니다.' }
+                { title: t.details.feature1.title, desc: t.details.feature1.description },
+                { title: t.details.feature2.title, desc: t.details.feature2.description },
+                { title: t.details.feature3.title, desc: t.details.feature3.description }
               ].map((item, index) => (
                 <div
                   key={index}

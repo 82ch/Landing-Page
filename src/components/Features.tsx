@@ -1,47 +1,49 @@
 import { Terminal, FolderLock, UserX, Database, Bug, Sparkles, Shield } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-
-const features = [
-  {
-    icon: Terminal,
-    title: 'Command Injection 탐지',
-    description: '도구 호출에서 잠재적인 명령어 인젝션 패턴을 식별하고 차단합니다.',
-    color: 'bg-orange-100 text-orange-600'
-  },
-  {
-    icon: FolderLock,
-    title: 'File System Exposure 탐지',
-    description: '무단 파일 시스템 접근 시도를 모니터링하고 차단합니다.',
-    color: 'bg-yellow-100 text-yellow-600'
-  },
-  {
-    icon: UserX,
-    title: 'PII Leak 탐지',
-    description: '개인 식별 정보의 유출 가능성을 감지하여 데이터 프라이버시를 보호합니다.',
-    color: 'bg-green-100 text-green-600'
-  },
-  {
-    icon: Database,
-    title: 'Data Exfiltration 탐지',
-    description: '의심스러운 데이터 전송 패턴을 식별하여 정보 유출을 방지합니다.',
-    color: 'bg-blue-100 text-blue-600'
-  },
-  {
-    icon: Bug,
-    title: 'Tools Poisoning 탐지 (LLM)',
-    description: 'LLM 기반 시맨틱 분석으로 도구 명세 대비 실제 사용의 불일치를 감지합니다.',
-    color: 'bg-purple-100 text-purple-600'
-  },
-  {
-    icon: Sparkles,
-    title: 'User Intent 분석',
-    description: 'LLM이 도구를 호출하는 이유와 컨텍스트를 분석하여 의심스러운 의도를 탐지합니다.',
-    color: 'bg-pink-100 text-pink-600'
-  }
-];
+import { useTranslation } from '../hooks/useTranslation';
 
 export function Features() {
   const { ref, isVisible } = useScrollAnimation();
+  const t = useTranslation();
+
+  const features = [
+    {
+      icon: Terminal,
+      title: t.features.commandInjection.title,
+      description: t.features.commandInjection.description,
+      color: 'bg-orange-100 text-orange-600'
+    },
+    {
+      icon: FolderLock,
+      title: t.features.fileSystem.title,
+      description: t.features.fileSystem.description,
+      color: 'bg-yellow-100 text-yellow-600'
+    },
+    {
+      icon: UserX,
+      title: t.features.piiLeak.title,
+      description: t.features.piiLeak.description,
+      color: 'bg-green-100 text-green-600'
+    },
+    {
+      icon: Database,
+      title: t.features.dataExfiltration.title,
+      description: t.features.dataExfiltration.description,
+      color: 'bg-blue-100 text-blue-600'
+    },
+    {
+      icon: Bug,
+      title: t.features.toolsPoisoning.title,
+      description: t.features.toolsPoisoning.description,
+      color: 'bg-purple-100 text-purple-600'
+    },
+    {
+      icon: Sparkles,
+      title: t.features.userIntent.title,
+      description: t.features.userIntent.description,
+      color: 'bg-pink-100 text-pink-600'
+    }
+  ];
 
   return (
     <section id="features" className="py-20 bg-white">
@@ -55,13 +57,13 @@ export function Features() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-4">
               <Shield className="w-4 h-4" />
-              <span className="text-sm font-medium">보안 모듈</span>
+              <span className="text-sm font-medium">{t.features.badge}</span>
             </div>
             <h2 className="text-gray-900 mb-4">
-              보안 탐지 & 방어 메커니즘
+              {t.features.title}
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              5가지 탐지 엔진과 LLM 의도 분석을 통해 다양한 보안 위협을 실시간으로 식별하고 차단합니다.
+              {t.features.subtitle}
             </p>
           </div>
 

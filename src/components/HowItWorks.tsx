@@ -1,35 +1,37 @@
 import { Cable, ScanSearch, ShieldAlert, MonitorStop, Workflow } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-
-const steps = [
-  {
-    icon: Cable,
-    title: '1. MCP 프록시 설정',
-    description: '프록시를 통해 MCP Host와 MCP Server 간의 모든 통신을 모니터링 합니다.',
-    color: 'bg-blue-600'
-  },
-  {
-    icon: ScanSearch,
-    title: '2. 다중 엔진 분석',
-    description: '5개의 탐지 엔진이 동시에 작동하여 각종 보안 위협 패턴을 실시간으로 검사합니다.',
-    color: 'bg-purple-600'
-  },
-  {
-    icon: ShieldAlert,
-    title: '3. 위협 탐지 & 알림',
-    description: 'Electron UI 대시보드에서 탐지된 위협을 시각화하고 즉시 알림을 표시합니다.',
-    color: 'bg-orange-600'
-  },
-  {
-    icon: MonitorStop,
-    title: '4. 차단 & 기록',
-    description: '사용자가 차단 여부를 결정하고, 모든 이벤트를 데이터베이스에 기록합니다.',
-    color: 'bg-green-600'
-  }
-];
+import { useTranslation } from '../hooks/useTranslation';
 
 export function HowItWorks() {
   const { ref, isVisible } = useScrollAnimation();
+  const t = useTranslation();
+
+  const steps = [
+    {
+      icon: Cable,
+      title: t.howItWorks.step1.title,
+      description: t.howItWorks.step1.description,
+      color: 'bg-blue-600'
+    },
+    {
+      icon: ScanSearch,
+      title: t.howItWorks.step2.title,
+      description: t.howItWorks.step2.description,
+      color: 'bg-purple-600'
+    },
+    {
+      icon: ShieldAlert,
+      title: t.howItWorks.step3.title,
+      description: t.howItWorks.step3.description,
+      color: 'bg-orange-600'
+    },
+    {
+      icon: MonitorStop,
+      title: t.howItWorks.step4.title,
+      description: t.howItWorks.step4.description,
+      color: 'bg-green-600'
+    }
+  ];
 
   return (
     <section id="how-it-works" className="py-20 bg-gray-50">
@@ -43,13 +45,13 @@ export function HowItWorks() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-purple-100 text-purple-700 px-4 py-2 rounded-full mb-4">
               <Workflow className="w-4 h-4" />
-              <span className="text-sm font-medium">작동 방식</span>
+              <span className="text-sm font-medium">{t.howItWorks.badge}</span>
             </div>
             <h2 className="text-gray-900 mb-4">
-              작동 원리
+              {t.howItWorks.title}
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              4단계의 간단하고 효과적인 프로세스로 MCP 환경을 보호합니다.
+              {t.howItWorks.subtitle}
             </p>
           </div>
 

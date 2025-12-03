@@ -1,47 +1,49 @@
 import { Layers } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
-
-const techCategories = [
-  {
-    category: 'Backend',
-    color: 'bg-blue-100 text-blue-700',
-    technologies: [
-      { name: 'Python 3.8+', description: 'MCP Proxy 서버 구현' },
-      { name: 'Event Blocking', description: '위협 차단 및 제어' },
-      { name: 'WebSocket', description: 'Electron UI 실시간 통신' },
-    ]
-  },
-  {
-    category: 'Frontend',
-    color: 'bg-purple-100 text-purple-700',
-    technologies: [
-      { name: 'Electron', description: '데스크톱 애플리케이션' },
-      { name: 'React', description: 'UI 컴포넌트 라이브러리' },
-      { name: 'TypeScript', description: '타입 안전성 보장' },
-    ]
-  },
-  {
-    category: 'Detection Engines',
-    color: 'bg-green-100 text-green-700',
-    technologies: [
-      { name: 'Mistral API', description: 'LLM 기반 Tool Poisoning 탐지' },
-      { name: 'YARA Rule', description: '정규식 기반 위협 탐지' },
-      { name: 'Sequence Analysis', description: '컨텍스트 기반 보안 검사' },
-    ]
-  },
-  {
-    category: 'Infrastructure',
-    color: 'bg-orange-100 text-orange-700',
-    technologies: [
-      { name: 'SQLite', description: '이벤트 로그 데이터베이스' },
-      { name: 'PyInstaller', description: '실행 파일 패키징' },
-      { name: 'Cross-Platform', description: 'Windows, macOS, Linux 지원' },
-    ]
-  }
-];
+import { useTranslation } from '../hooks/useTranslation';
 
 export function TechStack() {
   const { ref, isVisible } = useScrollAnimation();
+  const t = useTranslation();
+
+  const techCategories = [
+    {
+      category: t.techStack.backend,
+      color: 'bg-blue-100 text-blue-700',
+      technologies: [
+        { name: t.techStack.python, description: t.techStack.pythonDesc },
+        { name: t.techStack.blocking, description: t.techStack.blockingDesc },
+        { name: t.techStack.websocket, description: t.techStack.websocketDesc },
+      ]
+    },
+    {
+      category: t.techStack.frontend,
+      color: 'bg-purple-100 text-purple-700',
+      technologies: [
+        { name: t.techStack.electron, description: t.techStack.electronDesc },
+        { name: t.techStack.react, description: t.techStack.reactDesc },
+        { name: t.techStack.typescript, description: t.techStack.typescriptDesc },
+      ]
+    },
+    {
+      category: t.techStack.detection,
+      color: 'bg-green-100 text-green-700',
+      technologies: [
+        { name: t.techStack.mistral, description: t.techStack.mistralDesc },
+        { name: t.techStack.yara, description: t.techStack.yaraDesc },
+        { name: t.techStack.sequence, description: t.techStack.sequenceDesc },
+      ]
+    },
+    {
+      category: t.techStack.infrastructure,
+      color: 'bg-orange-100 text-orange-700',
+      technologies: [
+        { name: t.techStack.sqlite, description: t.techStack.sqliteDesc },
+        { name: t.techStack.pyinstaller, description: t.techStack.pyinstallerDesc },
+        { name: t.techStack.crossplatform, description: t.techStack.crossplatformDesc },
+      ]
+    }
+  ];
 
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -55,14 +57,13 @@ export function TechStack() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full mb-4">
               <Layers className="w-4 h-4" />
-              <span className="text-sm font-medium">기술 스택</span>
+              <span className="text-sm font-medium">{t.techStack.badge}</span>
             </div>
-            <h2 className="text-gray-900 mb-4">
-              최신 기술로 구축된<br />
-              강력한 보안 프레임워크
+            <h2 className="text-gray-900 mb-4" style={{ whiteSpace: 'pre-line' }}>
+              {t.techStack.title}
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              검증된 오픈소스 기술과 최신 AI 모델을 결합하여 안정적이고 확장 가능한 시스템을 제공합니다.
+              {t.techStack.subtitle}
             </p>
           </div>
 

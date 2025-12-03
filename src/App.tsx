@@ -8,20 +8,39 @@ import { Details } from './components/Details';
 import { VideoShowcase } from './components/VideoShowcase';
 import { CTA } from './components/CTA';
 import { Footer } from './components/Footer';
+import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 
-export default function App() {
+function AppContent() {
+  const { isTransitioning } = useLanguage();
+
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       <Header />
-      <Hero />
-      <Features />
-      <Benefits />
-      <Details />
-      <VideoShowcase />
-      <HowItWorks />
-      <TechStack />
-      <CTA />
-      <Footer />
+      <div
+        className={`transition-all duration-500 ${
+          isTransitioning
+            ? 'opacity-0 scale-[0.98] blur-sm'
+            : 'opacity-100 scale-100 blur-0'
+        }`}
+      >
+        <Hero />
+        <Features />
+        <Benefits />
+        <Details />
+        <VideoShowcase />
+        <HowItWorks />
+        <TechStack />
+        <CTA />
+        <Footer />
+      </div>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }

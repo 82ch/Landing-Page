@@ -1,8 +1,10 @@
 import { MessageCircle, Github } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useTranslation } from '../hooks/useTranslation';
 
 export function Footer() {
   const { ref, isVisible } = useScrollAnimation();
+  const t = useTranslation();
 
   return (
     <footer className="bg-gray-900 text-gray-300 pt-16 pb-8">
@@ -21,7 +23,7 @@ export function Footer() {
               <span className="text-white font-bold text-xl">MCP-Dandan</span>
             </div>
             <p className="text-gray-400 text-sm mb-4">
-              MCP 보안 프레임워크로 실시간 위협 탐지와 모니터링을 제공하는 오픈소스 프로젝트입니다.
+              {t.footer.description}
             </p>
             <div className="flex gap-4">
               <a href="https://github.com/82ch/MCP-Dandan" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 hover:scale-110 transition-all">
@@ -38,20 +40,20 @@ export function Footer() {
           <div className={`transition-all duration-700 delay-200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}>
-            <h3 className="text-white mb-4">프로젝트</h3>
+            <h3 className="text-white mb-4">{t.footer.project}</h3>
             <ul className="space-y-2 text-sm">
-              <li><a href="#features" className="hover:text-white hover:translate-x-1 transition-all inline-block">주요 기능</a></li>
-              <li><a href="https://github.com/82ch/MCP-Dandan#quick-start" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">설치 가이드</a></li>
-              <li><a href="https://github.com/82ch/MCP-Dandan#detection-engines" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">탐지 엔진</a></li>
-              <li><a href="https://github.com/82ch/MCP-Dandan/releases" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">릴리즈 노트</a></li>
-              <li><a href="https://github.com/82ch/MCP-Dandan#project-structure" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">프로젝트 구조</a></li>
+              <li><a href="#features" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t.footer.features}</a></li>
+              <li><a href="https://github.com/82ch/MCP-Dandan#quick-start" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t.footer.guide}</a></li>
+              <li><a href="https://github.com/82ch/MCP-Dandan#detection-engines" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t.footer.engines}</a></li>
+              <li><a href="https://github.com/82ch/MCP-Dandan/releases" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t.footer.releases}</a></li>
+              <li><a href="https://github.com/82ch/MCP-Dandan#project-structure" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t.footer.structure}</a></li>
             </ul>
           </div>
 
           <div className={`transition-all duration-700 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}>
-            <h3 className="text-white mb-4">기술 스택</h3>
+            <h3 className="text-white mb-4">{t.footer.techStack}</h3>
             <ul className="space-y-2 text-sm">
               <li><span className="text-gray-400">Python 3.8+</span></li>
               <li><span className="text-gray-400">Electron 33+</span></li>
@@ -63,27 +65,27 @@ export function Footer() {
           <div className={`transition-all duration-700 delay-400 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}>
-            <h3 className="text-white mb-4">리소스</h3>
+            <h3 className="text-white mb-4">{t.footer.resources}</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <Github className="w-5 h-5 flex-shrink-0 mt-0.5" />
                 <a href="https://github.com/82ch/MCP-Dandan" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">
-                  GitHub Repository
+                  {t.footer.github}
                 </a>
               </li>
               <li>
                 <a href="https://github.com/82ch/MCP-Dandan/issues" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">
-                  이슈 리포트
+                  {t.footer.issues}
                 </a>
               </li>
               <li>
                 <a href="https://github.com/82ch/MCP-Dandan#desktop-ui-features" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">
-                  데스크톱 UI
+                  {t.footer.desktopUI}
                 </a>
               </li>
               <li>
                 <a href="https://github.com/82ch/MCP-Dandan#overview" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">
-                  문서
+                  {t.footer.docs}
                 </a>
               </li>
             </ul>
@@ -93,11 +95,11 @@ export function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
             <p className="text-gray-400">
-              © 2025 MCP-Dandan. Licensed under MIT License. 82ch
+              {t.footer.copyright}
             </p>
             <div className="flex gap-6">
               <a href="https://github.com/82ch/MCP-Dandan/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-                MIT License
+                {t.footer.mitLicense}
               </a>
               <a href="https://github.com/82ch/MCP-Dandan" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
                 GitHub
