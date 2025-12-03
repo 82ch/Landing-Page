@@ -47,9 +47,6 @@ export function HowItWorks() {
               <Workflow className="w-4 h-4" />
               <span className="text-sm font-medium">{t.howItWorks.badge}</span>
             </div>
-            <h2 className="text-gray-900 mb-4">
-              {t.howItWorks.title}
-            </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
               {t.howItWorks.subtitle}
             </p>
