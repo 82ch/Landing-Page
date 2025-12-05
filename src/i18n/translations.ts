@@ -43,7 +43,7 @@ export const translations = {
         description: 'LLM 기반 시맨틱 분석으로 도구 명세 대비 실제 사용의 불일치를 감지합니다.',
       },
       userIntent: {
-        title: 'User Intent 분석',
+        title: 'Tool Call Reason 분석',
         description: 'LLM이 도구를 호출하는 이유와 컨텍스트를 분석하여 의심스러운 의도를 탐지합니다.',
       },
     },
@@ -239,7 +239,7 @@ export const translations = {
         description: 'Detect discrepancies between tool specifications and actual usage through LLM-based semantic analysis.',
       },
       userIntent: {
-        title: 'User Intent Analysis',
+        title: 'Tool Call Reason Analysis',
         description: 'Analyze why and in what context LLM calls tools to detect suspicious intent.',
       },
     },
