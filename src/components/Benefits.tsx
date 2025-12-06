@@ -7,6 +7,7 @@ export function Benefits() {
   const { ref, isVisible } = useScrollAnimation();
   const t = useTranslation();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const images = [
     { src: '/dashboard2.png', alt: t.benefits.imageAlt },
@@ -15,7 +16,13 @@ export function Benefits() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % images.length);
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 50);
+      }, 300);
     }, 3000);
     return () => clearInterval(interval);
   }, [images.length]);
@@ -100,9 +107,20 @@ export function Benefits() {
                   key={index}
                   src={image.src}
                   alt={image.alt}
-                  className={`w-full h-full object-contain transition-opacity duration-500 ${
-                    index === currentImageIndex ? 'opacity-100' : 'opacity-0 absolute inset-0'
+                  className={`w-full h-full object-contain transition-all duration-700 ${
+                    index === currentImageIndex
+                      ? 'opacity-100 scale-100 translate-x-0'
+                      : 'opacity-0 scale-95 absolute inset-0'
+                  } ${
+                    index === currentImageIndex && isTransitioning
+                      ? 'translate-x-2'
+                      : index !== currentImageIndex && isTransitioning
+                      ? '-translate-x-2'
+                      : ''
                   }`}
+                  style={{
+                    transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+                  }}
                 />
               ))}
             </div>
