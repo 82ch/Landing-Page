@@ -53,7 +53,7 @@ export function Hero() {
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="gap-2 hover:scale-105 transition-transform" asChild>
-                <a href="https://github.com/82ch/MCP-Dandan#quick-start" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/82ch/MCP-Dandan/releases" target="_blank" rel="noopener noreferrer">
                   <BookOpen className="w-5 h-5" />
                   {t.hero.guide}
                 </a>

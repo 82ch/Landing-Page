@@ -31,7 +31,7 @@ export function CTA() {
               </a>
             </Button>
             <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 gap-2" asChild>
-              <a href="https://github.com/82ch/MCP-Dandan#quick-start" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/82ch/MCP-Dandan/releases" target="_blank" rel="noopener noreferrer">
                 <BookOpen className="w-5 h-5" />
                 {t.cta.guide}
               </a>

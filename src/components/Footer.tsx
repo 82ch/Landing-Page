@@ -43,7 +43,7 @@ export function Footer() {
             <h3 className="text-white mb-4">{t.footer.project}</h3>
             <ul className="space-y-2 text-sm">
               <li><a href="#features" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t.footer.features}</a></li>
-              <li><a href="https://github.com/82ch/MCP-Dandan#quick-start" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t.footer.guide}</a></li>
+              <li><a href="https://github.com/82ch/MCP-Dandan/releases" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t.footer.guide}</a></li>
               <li><a href="https://github.com/82ch/MCP-Dandan#detection-engines" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t.footer.engines}</a></li>
               <li><a href="https://github.com/82ch/MCP-Dandan/releases" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t.footer.releases}</a></li>
               <li><a href="https://github.com/82ch/MCP-Dandan#project-structure" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">{t.footer.structure}</a></li>
