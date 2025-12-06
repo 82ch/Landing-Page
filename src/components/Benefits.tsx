@@ -1,10 +1,24 @@
 import { Monitor, MessageSquare, History, Lightbulb } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useTranslation } from '../hooks/useTranslation';
 
 export function Benefits() {
   const { ref, isVisible } = useScrollAnimation();
   const t = useTranslation();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const images = [
+    { src: '/dashboard2.png', alt: t.benefits.imageAlt },
+    { src: '/tuto.png', alt: 'Tutorial Guide' }
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   const benefits = [
     {
@@ -80,11 +94,18 @@ export function Benefits() {
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
           }`}>
             <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl opacity-10 blur-2xl"></div>
-            <img
-              src="/dashboard2.png"
-              alt={t.benefits.imageAlt}
-              className="relative rounded-2xl shadow-xl w-full border border-gray-200"
-            />
+            <div className="relative rounded-2xl shadow-xl overflow-hidden border border-gray-200" style={{ aspectRatio: '16/10' }}>
+              {images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image.src}
+                  alt={image.alt}
+                  className={`w-full h-full object-contain transition-opacity duration-500 ${
+                    index === currentImageIndex ? 'opacity-100' : 'opacity-0 absolute inset-0'
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
