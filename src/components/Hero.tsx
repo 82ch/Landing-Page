@@ -10,7 +10,7 @@ export function Hero() {
   const t = useTranslation();
 
   useEffect(() => {
-    fetch('https://api.github.com/repos/82ch/82ch')
+    fetch('https://api.github.com/repos/82ch/MCP-Dandan')
       .then(res => res.json())
       .then(data => {
         if (data.stargazers_count !== undefined) {
