@@ -78,11 +78,7 @@ export function Footer() {
                   {t.footer.issues}
                 </a>
               </li>
-              <li>
-                <a href="https://github.com/82ch/MCP-Dandan#desktop-ui-features" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">
-                  {t.footer.desktopUI}
-                </a>
-              </li>
+
               <li>
                 <a href="https://github.com/82ch/MCP-Dandan#overview" target="_blank" rel="noopener noreferrer" className="hover:text-white hover:translate-x-1 transition-all inline-block">
                   {t.footer.docs}
