@@ -4,7 +4,7 @@ export const translations = {
       features: '탐지 엔진',
       benefits: '핵심 기능',
       howItWorks: '작동 원리',
-      docs: '문서',
+      docs: '정보',
     },
     hero: {
       badge: '오픈소스 MCP 보안 솔루션',
@@ -200,7 +200,7 @@ export const translations = {
       features: 'Detection Engines',
       benefits: 'Key Features',
       howItWorks: 'How It Works',
-      docs: 'Documentation',
+      docs: 'Info',
     },
     hero: {
       badge: 'Open Source MCP Security Solution',

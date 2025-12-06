@@ -13,6 +13,19 @@ export function Header() {
     setIsVisible(true);
   }, []);
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const target = document.querySelector(targetId);
+    if (target) {
+      const headerHeight = 80;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <header className={`fixed top-0 w-full bg-white/95 backdrop-blur-sm border-b border-gray-200 z-50 transition-all duration-1000 ${
       isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
@@ -29,24 +42,46 @@ export function Header() {
           <nav className={`hidden md:flex items-center gap-8 transition-all duration-700 delay-300 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
           }`}>
-            <a href="#features" className={`text-gray-600 hover:text-gray-900 transition-all hover:scale-105 ${
-              isTransitioning ? 'opacity-50 blur-[1px]' : 'opacity-100 blur-0'
-            }`}>
+            <a
+              href="#features"
+              onClick={(e) => handleSmoothScroll(e, '#features')}
+              className={`text-gray-600 hover:text-gray-900 transition-all hover:scale-105 ${
+                isTransitioning ? 'opacity-50 blur-[1px]' : 'opacity-100 blur-0'
+              }`}
+            >
               {t.header.features}
             </a>
-            <a href="#benefits" className={`text-gray-600 hover:text-gray-900 transition-all hover:scale-105 ${
-              isTransitioning ? 'opacity-50 blur-[1px]' : 'opacity-100 blur-0'
-            }`}>
+            <a
+              href="#benefits"
+              onClick={(e) => handleSmoothScroll(e, '#benefits')}
+              className={`text-gray-600 hover:text-gray-900 transition-all hover:scale-105 ${
+                isTransitioning ? 'opacity-50 blur-[1px]' : 'opacity-100 blur-0'
+              }`}
+            >
               {t.header.benefits}
             </a>
-            <a href="#how-it-works" className={`text-gray-600 hover:text-gray-900 transition-all hover:scale-105 ${
-              isTransitioning ? 'opacity-50 blur-[1px]' : 'opacity-100 blur-0'
-            }`}>
+            <a
+              href="#how-it-works"
+              onClick={(e) => handleSmoothScroll(e, '#how-it-works')}
+              className={`text-gray-600 hover:text-gray-900 transition-all hover:scale-105 ${
+                isTransitioning ? 'opacity-50 blur-[1px]' : 'opacity-100 blur-0'
+              }`}
+            >
               {t.header.howItWorks}
             </a>
-            <a href="https://github.com/82ch/MCP-Dandan#readme" target="_blank" rel="noopener noreferrer" className={`text-gray-600 hover:text-gray-900 transition-all hover:scale-105 ${
-              isTransitioning ? 'opacity-50 blur-[1px]' : 'opacity-100 blur-0'
-            }`}>
+            <a
+              href="#info"
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({
+                  top: document.body.scrollHeight,
+                  behavior: 'smooth'
+                });
+              }}
+              className={`text-gray-600 hover:text-gray-900 transition-all hover:scale-105 ${
+                isTransitioning ? 'opacity-50 blur-[1px]' : 'opacity-100 blur-0'
+              }`}
+            >
               {t.header.docs}
             </a>
           </nav>
