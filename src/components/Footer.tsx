@@ -60,8 +60,8 @@ export function Footer() {
             <h3 className="text-white mb-4">{t.footer.techStack}</h3>
             <ul className="space-y-2 text-sm">
               <li><span className="text-gray-400">Python 3.8+</span></li>
-              <li><span className="text-gray-400">Electron 33+</span></li>
-              <li><span className="text-gray-400">React 18</span></li>
+              <li><span className="text-gray-400">Electron 35+</span></li>
+              <li><span className="text-gray-400">React 19+</span></li>
               <li><span className="text-gray-400">Mistral API</span></li>
             </ul>
           </div>
